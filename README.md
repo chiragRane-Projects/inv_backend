@@ -169,4 +169,4 @@ uvicorn main:app --reload
 ## 👨🏻‍💻 Developer Information
 - **Portfolio:** [Portfolio Link](https://chirag-v-rane.vercel.app/)
 
--**Linkedin:** [LinkedIn Link](https://www.linkedin.com/in/chirag-v-rane/)
+- **Linkedin:** [LinkedIn Link](https://www.linkedin.com/in/chirag-v-rane/)
