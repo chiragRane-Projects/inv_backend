@@ -5,6 +5,7 @@ from api.product import router as product_router
 from api.inventory import router as inv_router
 from api.order import router as order_router
 from api.ml import router as ml_router
+from api.reorder import router as reorder_router
 
 app = FastAPI(title="AI Logistics Platform")
 
@@ -14,6 +15,7 @@ app.include_router(product_router)
 app.include_router(inv_router)
 app.include_router(order_router)
 app.include_router(ml_router)
+app.include_router(reorder_router)
 
 @app.get("/")
 def health_check():
