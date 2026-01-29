@@ -141,7 +141,7 @@ backend/
 
 Frontend integration with React + Vite + Tailwind + shadcn/ui
 
-## Run backend on your device
+## 💻 Run backend on your device
 ```
 git clone https://github.com/chiragRane-Projects/inv_backend.git
 
