@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from api.auth import router as auth_router
+from fastapi.middleware.cors import CORSMiddleware
 from api.warehouse import router as warehouse_router
 from api.product import router as product_router
 from api.inventory import router as inv_router
@@ -16,6 +17,14 @@ app.include_router(inv_router)
 app.include_router(order_router)
 app.include_router(ml_router)
 app.include_router(reorder_router)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def health_check():

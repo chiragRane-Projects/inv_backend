@@ -158,3 +158,15 @@ pip install -r requirements.txt
 
 uvicorn main:app --reload
 ```
+
+---
+
+## </> Frontend repository 
+- **Frontend:** [Frontend Link](https://github.com/chiragRane-Projects/inv_frontend.git) 
+
+---
+
+## 👨🏻‍💻 Developer Information
+- **Portfolio:** [Portfolio Link](https://chirag-v-rane.vercel.app/)
+
+-**Linkedin:** [LinkedIn Link](https://www.linkedin.com/in/chirag-v-rane/)
