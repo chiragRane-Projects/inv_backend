@@ -38,7 +38,7 @@ This project follows **backend-first architecture**, **production ML practices**
 - **PostgreSQL** – Relational database
 - **Alembic** – Database migrations
 - **JWT (python-jose)** – Authentication & authorization
-- **Passlib (bcrypt)** – Secure password hashing
+- **Passlib (argon2)** – Secure password hashing
 - **dotenv** – Environment variable management
 
 ### Machine Learning & Data Science
