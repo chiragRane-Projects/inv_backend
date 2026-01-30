@@ -2,8 +2,9 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from core.database import get_db
 from models.user import User
-from schemas.auth import LoginRequest, TokenResponse, Register
+from schemas.auth import LoginRequest, TokenResponse, Register, UserResponse
 from core.security import verify_pwd, create_access_token, hash_pwd
+from core.dependencies import require_role
 
 router = APIRouter(prefix="/auth", tags=['Auth'])
 
@@ -17,11 +18,12 @@ def register(data:Register, db: Session = Depends(get_db)):
             detail='User with this email already exists'
         )
     
-    hashed = hash_pwd(data.hashed_pwd)
+    hashed = hash_pwd(data.password)
     
     new_user = User(
         email = data.email,
-        hashed_pwd = hashed,
+        name = data.name,
+        hashed_password = hashed,
         role = data.role
     )
     
@@ -33,7 +35,10 @@ def register(data:Register, db: Session = Depends(get_db)):
         "message": "User registered successfully",
         "user_id": new_user.id
     }
-    
+
+@router.get('/users', response_model=list[UserResponse], dependencies=[Depends(require_role("superadmin"))])
+def get_users(db: Session = Depends(get_db)):
+    return db.query(User).all()
 @router.post('/login', response_model=TokenResponse)
 def login(data: LoginRequest, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.email == data.email).first()
@@ -44,7 +49,7 @@ def login(data: LoginRequest, db: Session = Depends(get_db)):
             detail='Invalid credentials'
         )
         
-    if not verify_pwd(data.password, user.hashed_pwd):
+    if not verify_pwd(data.password, user.hashed_password):
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail='Invalid credentials'

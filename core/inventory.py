@@ -26,8 +26,11 @@ def consume_inventory(db: Session, warehouse_id: int, product_id: int, qty: int)
         product_id=product_id
     ).first()
     
-    if not inventory or inventory.quantity < qty:
-        raise Exception("Insufficient stock")
+    if not inventory:
+        raise Exception(f"No inventory found for product {product_id} in warehouse {warehouse_id}")
+    
+    if inventory.quantity < qty:
+        raise Exception(f"Insufficient stock. Available: {inventory.quantity}, Requested: {qty}")
     
     inventory.quantity -= qty
     
@@ -39,6 +42,7 @@ def consume_inventory(db: Session, warehouse_id: int, product_id: int, qty: int)
     )
     
     db.add(log)
+    db.commit()
     
 def refill_inventory(db: Session, warehouse_id: int, product_id: int, qty: int):
     inventory = db.query(Inventory).filter_by(
