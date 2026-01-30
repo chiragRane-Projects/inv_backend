@@ -1,5 +1,8 @@
-# 🚚 AI-Powered Logistics & Inventory Optimization Platform (Backend)
+# 🚚 Smart Logistics (Backend)
 
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![shadcn/ui](https://img.shields.io/badge/shadcn/ui-000000?style=for-the-badge&logo=shadcnui&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
 ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-8B0000?style=for-the-badge&logo=sqlalchemy&logoColor=white)
@@ -136,12 +139,6 @@ backend/
 - Realistic ML pipeline
 - Explainable AI decisions
 - Industry-aligned logistics use cases
-
----
-
-## 🚀 Next Phase
-
-Frontend integration with React + Vite + Tailwind + shadcn/ui
 
 ---
 
